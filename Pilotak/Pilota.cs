@@ -20,7 +20,7 @@ namespace Pilotak
             név = splitSor[0];
             szültési_dátum = splitSor[1];
             nemzetiség = splitSor[2];
-            rajtszám = Convert.ToInt32(splitSor[3]);
+            rajtszám = (splitSor[3].Length > 0) ? Convert.ToInt32(splitSor[3]): 0;
             év = Convert.ToInt32(splitSor[4]);
 
         }
