@@ -14,10 +14,23 @@ namespace Pilotak
         private int rajtszám;
         private int év;
 
+        public Pilota(string sor)
+        {
+            var splitSor = sor.Split(';');
+            név = splitSor[0];
+            szültési_dátum = splitSor[1];
+            nemzetiség = splitSor[2];
+            rajtszám = Convert.ToInt32(splitSor[3]);
+            év = Convert.ToInt32(splitSor[4]);
+
+        }
+
         public string Név { get => név; set => név = value; }
         public string Szültési_dátum { get => szültési_dátum; set => szültési_dátum = value; }
         public string Nemzetiség { get => nemzetiség; set => nemzetiség = value; }
         public int Rajtszám { get => rajtszám; set => rajtszám = value; }
         public int Év { get => év; set => év = value; }
+
+
     }
 }
