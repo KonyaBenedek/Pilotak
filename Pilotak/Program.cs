@@ -5,6 +5,7 @@ using System.Text.Unicode;
 using System.Collections.Generic;
 using Pilotak;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pilotak
 {
@@ -16,7 +17,7 @@ namespace Pilotak
 
             StreamReader sr = new StreamReader("pilota.csv");
             sr.ReadLine();
-            while (sr.EndOfStream) 
+            while (!sr.EndOfStream) 
             {
                 lista.Add(new Pilota(sr.ReadLine()));
             }
@@ -28,6 +29,15 @@ namespace Pilotak
 
             Console.WriteLine("5. feladat: ");
 
+            var evElottiLekerdezes = from sor in lista where sor.Év < 1901 select (sor.Név, sor.SzültésiDátum);
+            foreach (var sor in evElottiLekerdezes)
+            {
+                Console.WriteLine($"{sor.Név}, [{sor.SzültésiDátum}] ");
+            }
+
+            var nemzetiség = (from sor in lista where sor.Rajtszám > 0 orderby sor.Rajtszám select sor.Nemzetiség).First();
+            Console.WriteLine($"6. feladat: {nemzetiség}");
         }
-    }
+
+    }  
 }

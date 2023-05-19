@@ -9,7 +9,7 @@ namespace Pilotak
     public class Pilota
     {
         private string név;
-        private string szültési_dátum;
+        private string szültésiDátum;
         private string nemzetiség;
         private int rajtszám;
         private int év;
@@ -18,15 +18,15 @@ namespace Pilotak
         {
             var splitSor = sor.Split(';');
             név = splitSor[0];
-            szültési_dátum = splitSor[1];
+            szültésiDátum = splitSor[1];
             nemzetiség = splitSor[2];
             rajtszám = (splitSor[3].Length > 0) ? Convert.ToInt32(splitSor[3]): 0;
-            év = Convert.ToInt32(splitSor[4]);
+            év = Convert.ToInt32(splitSor[1].Substring(0,4));
 
         }
 
         public string Név { get => név; set => név = value; }
-        public string Szültési_dátum { get => szültési_dátum; set => szültési_dátum = value; }
+        public string SzültésiDátum { get => szültésiDátum; set => szültésiDátum = value; }
         public string Nemzetiség { get => nemzetiség; set => nemzetiség = value; }
         public int Rajtszám { get => rajtszám; set => rajtszám = value; }
         public int Év { get => év; set => év = value; }
